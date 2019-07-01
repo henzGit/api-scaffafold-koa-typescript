@@ -1,0 +1,16 @@
+App:
+  env: default
+  language: en
+  apiVersion: v1.0
+  server:
+    port: 7001
+  db:
+    host: 127.0.0.1
+    user: root
+    password: '12345678'
+    database: bpp
+    port: 3306
+  logger:
+      host: 127.0.0.1
+      port: 2020
+      timeout: 3.0

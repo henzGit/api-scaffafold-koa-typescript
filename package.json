@@ -1,0 +1,48 @@
+{
+  "name": "poc-koa-typescript",
+  "version": "0.1.0",
+  "description": "POC of developing TypeScript App with Knex.",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "author": {
+    "name": "Hendrik",
+    "email": "hendrik.hendrik@rakuten.com"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.8",
+    "@types/config": "^0.0.34",
+    "@types/koa": "^2.0.49",
+    "@types/koa-router": "^7.0.42",
+    "@types/node": "^12.0.12",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.8.0",
+    "sinon": "^7.3.2",
+    "ts-node-dev": "^1.0.0-pre.40",
+    "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "class-validator": "^0.9.1",
+    "config": "^3.1.0",
+    "express-http-context": "^1.2.2",
+    "fluent-logger": "^3.3.1",
+    "http-status-codes": "^1.3.2",
+    "knex": "^0.18.1",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "koa-swagger-decorator": "^1.5.16",
+    "mysql": "^2.16.0",
+    "winston": "^3.2.1"
+  },
+  "scripts": {
+    "start": "ts-node-dev src/index.ts",
+    "test": "jest",
+    "create-migration": "knex -x ts migrate:make",
+    "exec-migration": "knex migrate:latest"
+  }
+}
