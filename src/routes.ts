@@ -3,7 +3,7 @@ import { SwaggerOptions, MapOptions } from 'koa-swagger-decorator/dist/wrapper';
 import { swaggerOpts } from './swagger.opts';
 import UsersController from './v1.0/controller/user/users.controller';
 import UserService from './v1.0/service/user.service';
-import BaseControllerInterface from './v1.0/controller/base.controller';
+import BaseControllerInterface from 'v1.0/controller/base.controller';
 
 let router: SwaggerRouter = new SwaggerRouter();
 

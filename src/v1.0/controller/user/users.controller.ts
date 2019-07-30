@@ -5,13 +5,13 @@ import {
     } 
     from 'koa-swagger-decorator';
 import * as HttpCodes from 'http-status-codes';
-import ResGetUsersWithSpecialRole from '../../dto/user/res.get.users.withSpecialRole.dto';
+import ResGetUsersWithSpecialRole from 'v1.0/dto/user/res.get.users.withSpecialRole.dto';
 import UserService from '../../service/user.service';
-import User from '../../../db/model/user';
+import User from 'db/model/user';
 import * as config from "config";
 import InternalUser from 'v1.0/dto/user/internalUser.dto';
 import ExternalUser from 'v1.0/dto/user/externalUser.dto';
-import BaseControllerInterface from '../base.controller';
+import BaseControllerInterface from 'v1.0/controller/base.controller';
 
 const apiVersion: string = config.get("App.apiVersion");
 
@@ -42,7 +42,6 @@ export default class UserController implements BaseControllerInterface {
         try {    
             const roleId: number = parseInt(ctx.params.roleId);
 
-            const userService : UserService = this.userService;
             const users: User[] | undefined = await this.userService.getUsersByRoleId(roleId);
 
             if (typeof users === 'undefined') {

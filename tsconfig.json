@@ -13,10 +13,10 @@
         "noLib": false,
         "skipLibCheck": true,
         "allowSyntheticDefaultImports": true,
-        "outDir": "./dist",
-        "baseUrl": "./src",
+        "outDir": "dist",
+        "baseUrl": "src",
         "strictNullChecks": true,
-        "sourceMap": true
+        "sourceMap": true,
     },
     "include": [
         "src/**/*"
