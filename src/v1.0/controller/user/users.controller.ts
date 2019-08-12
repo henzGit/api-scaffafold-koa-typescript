@@ -11,13 +11,14 @@ import User from 'db/model/user';
 import * as config from "config";
 import InternalUser from 'v1.0/dto/user/internalUser.dto';
 import ExternalUser from 'v1.0/dto/user/externalUser.dto';
-import BaseControllerInterface from 'v1.0/controller/base.controller';
+import BaseController from 'v1.0/controller/base.controller.interface';
+import UserServiceInterface from 'v1.0/service/user/user.service.interface';
 
 const apiVersion: string = config.get("App.apiVersion");
 
 @prefix(`${apiVersion}/users`)
-export default class UserController implements BaseControllerInterface {
-    constructor (private readonly userService: UserService) { 
+export default class UserController implements BaseController {
+    constructor (private readonly userService: UserServiceInterface) { 
         this.userService = userService;
     }
     

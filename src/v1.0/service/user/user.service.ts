@@ -1,8 +1,9 @@
 import Connection from '../../../db/connection';
 import User from '../../../db/model/user';
 import {USER_TBL} from '../../../lib/constant/tableName';
+import UserServiceInterface from './user.service.interface';
 
-export default class UserService {
+export default class UserService implements UserServiceInterface {
     public async getAllUsers() : Promise<User[] | undefined> {
         return await Connection
             .select('*')

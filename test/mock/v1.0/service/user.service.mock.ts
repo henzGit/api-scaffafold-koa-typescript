@@ -1,6 +1,7 @@
 import User from '../../../../src/db/model/user';
+import UserServiceInterface from '../../../../src/v1.0/service/user/user.service.interface';
 
-export default class UserServiceMock {
+export default class UserServiceMock implements UserServiceInterface{
 
     constructor (readonly usersData: User[]) { 
         this.usersData = usersData;
