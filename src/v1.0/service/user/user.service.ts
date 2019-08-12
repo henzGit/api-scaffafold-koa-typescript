@@ -1,6 +1,6 @@
-import Connection from '../../db/connection';
-import User from '../../db/model/user';
-import {USER_TBL} from '../../lib/constant/tableName';
+import Connection from '../../../db/connection';
+import User from '../../../db/model/user';
+import {USER_TBL} from '../../../lib/constant/tableName';
 
 export default class UserService {
     public async getAllUsers() : Promise<User[] | undefined> {

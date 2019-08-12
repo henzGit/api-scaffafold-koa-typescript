@@ -6,7 +6,7 @@ import {
     from 'koa-swagger-decorator';
 import * as HttpCodes from 'http-status-codes';
 import ResGetUsersWithSpecialRole from 'v1.0/dto/user/res.get.users.withSpecialRole.dto';
-import UserService from '../../service/user.service';
+import UserService from '../../service/user/user.service';
 import User from 'db/model/user';
 import * as config from "config";
 import InternalUser from 'v1.0/dto/user/internalUser.dto';
