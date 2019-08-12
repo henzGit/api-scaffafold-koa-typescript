@@ -7,7 +7,7 @@ export default interface User {
     last_login_ts: string;
     rid_last_name: string;
     accesses_changed_at: string;
-    is_blocked: boolean;
+    is_blocked: boolean | number;
     rid_refresh_token: string;
-    is_system_owner: boolean;
+    is_system_owner: boolean | number;
 }
