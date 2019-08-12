@@ -17,6 +17,7 @@
         "baseUrl": "src",
         "strictNullChecks": true,
         "sourceMap": true,
+        "resolveJsonModule": true,
     },
     "include": [
         "src/**/*"
