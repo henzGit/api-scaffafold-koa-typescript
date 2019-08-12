@@ -1,5 +1,5 @@
 import { SwaggerRouter } from "koa-swagger-decorator";
 
-export default interface BaseControllerInterface {
+export default interface BaseController {
    setup(router: SwaggerRouter): void;
 }
