@@ -3,14 +3,14 @@ import { SwaggerOptions, MapOptions } from 'koa-swagger-decorator/dist/wrapper';
 import { swaggerOpts } from './swagger.opts';
 import UsersController from './v1.0/controller/user/users.controller';
 import UserService from './v1.0/service/user/user.service';
-import BaseControllerInterface from 'v1.0/controller/base.controller';
+import BaseController from 'v1.0/controller/base.controller';
 
 let router: SwaggerRouter = new SwaggerRouter();
 
 // create all controllers
 const usersController: UsersController = new UsersController(new UserService()); 
 
-function installControllers(router: SwaggerRouter, controllers: BaseControllerInterface[]): void {
+function installControllers(router: SwaggerRouter, controllers: BaseController[]): void {
   controllers.forEach(controller => {
     controller.setup(router);
   })
