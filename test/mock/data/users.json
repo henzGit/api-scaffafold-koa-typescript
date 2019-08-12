@@ -25,7 +25,34 @@
             "is_blocked": 0,
             "rid_refresh_token": "",
             "is_system_owner": 0
-          }
+          },
+          { 
+            "user_uuid": "1124675c-bec9-470a-b8ee-52fe2d077b6f", 
+            "rid_first_name": "Blocked", 
+            "rid_last_name": "User",
+            "rid_uuid": "21ce8512-232b-480d-8a82-1b14fc921936",
+            "adfs_name_id": "",
+            "rid_username": "mportal_prod02@rakuten.com",
+            "last_login_ts": "2019-04-12 17:54:27.854575",
+            "accesses_changed_at": "2019-04-12 17:08:06.985899",
+            "is_blocked": 1,
+            "rid_refresh_token": "",
+            "is_system_owner": 0
+          },
+          { 
+              "user_uuid": "1124675c-bec9-470a-b8ee-52fe2d077b6a", 
+              "rid_first_name": "", 
+              "rid_last_name": "",
+              "rid_uuid": "",
+              "adfs_name_id": "sys.owner",
+              "rid_username": "",
+              "last_login_ts": "2019-04-13 17:54:27.854575",
+              "accesses_changed_at": "2019-04-13 17:08:06.985899",
+              "is_blocked": 0,
+              "rid_refresh_token": "",
+              "is_system_owner": 1
+            }
+  
   
     ]
 }
