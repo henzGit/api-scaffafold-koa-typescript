@@ -7,7 +7,6 @@ import User from '../../../../src/db/model/user';
 import UserServiceInterface from '../../../../src/v1.0/service/user/user.service.interface';
 import TestServer from '../../../testServer';
 import { OK, INTERNAL_SERVER_ERROR, BAD_REQUEST } from 'http-status-codes';
-import * as Koa from 'koa';
 import { Server } from 'http';
 
 describe('UsersController', () => {
@@ -21,9 +20,8 @@ describe('UsersController', () => {
     
         const testServer: TestServer = new TestServer();
         testServer.setController(usersController);
-        const koaInstance: Koa = testServer.getInstance();
 
-        listenedServer = await koaInstance.listen(testServer.testPort);
+        listenedServer = await testServer.getInstance().listen(testServer.testPort);
         agent = supertest.agent(listenedServer);
     })
 
@@ -33,8 +31,11 @@ describe('UsersController', () => {
         it(`should return a JSON object with the message "${message}" and a status code
             of "${OK}" if message was successful`, async () => {
             await agent.get('/users/specialrole/0')
-                    .expect(OK);
-        });
+                    .expect(OK)
+                    .expect(res => {
+                        expect(res.body.message).toBe(message)
+                    });
+            });
     })
 
     afterAll(async () => {
