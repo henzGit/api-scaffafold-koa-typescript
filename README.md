@@ -6,9 +6,10 @@ This is a scaffold of NodeJS-based REST API built on top on Koa webserver with T
 2. run `yarn install`
 
 # Available commands
-- start application: `npm start` 
-- create migration: `npm run create-migration`
-- execute migration: `npm run exec-migration`
+- start application: `yarn start` 
+- create migration: `yarn run create-migration`
+- execute migration: `yarn run exec-migration`
+- run test: `yarn test`
 
 # Available paths
 - The application runs on `localhost:7001`
