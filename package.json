@@ -5,8 +5,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "author": {
-    "name": "Hendrik",
-    "email": "hendrik.hendrik@rakuten.com"
+    "name": "Hendrik"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
