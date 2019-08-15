@@ -44,7 +44,8 @@
     "winston": "^3.2.1"
   },
   "scripts": {
-    "start": "ts-node-dev src/index.ts",
+    "dev": "ts-node-dev src/index.ts",
+    "start" : "tsc && node dist/index.js",
     "test": "jest --coverage",
     "create-migration": "knex -x ts migrate:make",
     "exec-migration": "knex migrate:latest"
