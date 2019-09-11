@@ -1,17 +1,16 @@
-import { Context } from 'koa';
-import { 
-    SwaggerRouter, 
-    request, summary, query, path, tags, prefix, description, responses
-    } 
-    from 'koa-swagger-decorator';
 import * as HttpCodes from 'http-status-codes';
-import ResGetUsersWithSpecialRole from 'v1.0/dto/user/res.get.users.withSpecialRole.dto';
-import User from 'db/model/user';
 import * as config from "config";
+import { Context } from 'koa';
+import {
+    SwaggerRouter, request, summary, query, path, tags, prefix, description, responses
+} from 'koa-swagger-decorator';
+import { ResGetUsersWithSpecialRole } from 'v1.0/dto/user/res.get.users.withSpecialRole.dto';
 import InternalUser from 'v1.0/dto/user/internalUser.dto';
 import ExternalUser from 'v1.0/dto/user/externalUser.dto';
+import User from 'db/model/user';
 import BaseControllerInterface from 'v1.0/controller/base.controller.interface';
 import UserServiceInterface from 'v1.0/service/user/user.service.interface';
+import { validate, ValidationError } from 'class-validator';
 
 const apiVersion: string = config.get("App.apiVersion");
 
@@ -36,12 +35,26 @@ export default class UserController implements BaseControllerInterface {
     })
     @responses({
       200: { description: 'success' },
+      400: { description: 'bad input parameters' },
       500: { description: 'something wrong about server' }
     })
     public async getUsersWithSpecialRole(ctx: Context) {
-        try {    
-            const roleId: number = parseInt(ctx.params.roleId);
+        try {
+            const errors: ValidationError[] = await validate(
+                "ReqGetUsersWithSpecialRoleSchema", ctx.params
+            );
 
+            if (errors) {
+                let errMsg = "Something wrong with input parameters";
+                errors.forEach((err: ValidationError) => {
+                    errMsg += `\n${JSON.stringify(err.constraints)}`;
+                });
+                ctx.body = errMsg;
+                ctx.status = HttpCodes.BAD_REQUEST;
+                return;
+            }
+
+            const roleId: number = parseInt(ctx.params.roleId);
             const users: User[] | undefined = await this.userService.getUsersByRoleId(roleId);
 
             if (typeof users === 'undefined') {
