@@ -4,7 +4,8 @@ import { Context } from 'koa';
 import {
     SwaggerRouter, request, summary, query, path, tags, prefix, description, responses
 } from 'koa-swagger-decorator';
-import { ResGetUsersWithSpecialRole } from 'v1.0/dto/user/res.get.users.withSpecialRole.dto';
+import { ResGetUsersWithSpecialRole } from '../../../v1.0/dto/user/res.get.users.withSpecialRole.dto';
+import { ReqGetUsersWithSpecialRole } from '../../../v1.0/dto/user/req.get.users.withSpecialRole.dto';
 import InternalUser from 'v1.0/dto/user/internalUser.dto';
 import ExternalUser from 'v1.0/dto/user/externalUser.dto';
 import User from 'db/model/user';
@@ -40,11 +41,12 @@ export default class UserController implements BaseControllerInterface {
     })
     public async getUsersWithSpecialRole(ctx: Context) {
         try {
-            const errors: ValidationError[] = await validate(
-                "ReqGetUsersWithSpecialRoleSchema", ctx.params
-            );
+            let req: ReqGetUsersWithSpecialRole = new ReqGetUsersWithSpecialRole();
+            req.roleId = parseInt(ctx.params.roleId);
+            const errors = await validate(req);
 
-            if (errors) {
+            if (errors && errors.length) {
+
                 let errMsg = "Something wrong with input parameters";
                 errors.forEach((err: ValidationError) => {
                     errMsg += `\n${JSON.stringify(err.constraints)}`;

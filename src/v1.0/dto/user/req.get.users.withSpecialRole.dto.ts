@@ -1,6 +1,9 @@
-import { ValidationSchema } from "class-validator";
+import { ValidationSchema, IsInt } from "class-validator";
 
 export class ReqGetUsersWithSpecialRole {
+  @IsInt({
+    message: "roleId must be integer"
+  })
   roleId: number;
 }
 
